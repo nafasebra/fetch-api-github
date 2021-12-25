@@ -1,0 +1,7 @@
+.profile__section{
+    margin: 1.5rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 3px 20px #cccccc88; 
+}
