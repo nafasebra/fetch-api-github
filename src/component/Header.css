@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Poppins:wght@300&display=swap');
+
+.header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header__logo{
+    margin: 0 1rem;
+}
+
+.header__title{
+    font-family: 'Inconsolata', monospace;
+}
