@@ -1,3 +1,8 @@
+.repositories__section{
+    width: 75%;
+    flex: 0 0 75%;
+}
+
 .repositories__title{
     display: flex;
     align-items: center;
@@ -8,6 +13,14 @@
     height: 3px;
     margin: 5px 10px 0;
     background-color: #353535;
+}
+
+.repositories{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .load-more{

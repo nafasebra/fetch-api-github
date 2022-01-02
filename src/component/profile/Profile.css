@@ -1,6 +1,7 @@
 .profile__section{
     margin: 1.5rem;
-    max-width: 25%;
+    width: 25%;
+    flex: 0 0 25%;
     padding: 2rem;
     border-radius: 10px;
     background-color: #ffffff;

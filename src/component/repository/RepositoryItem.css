@@ -1,0 +1,34 @@
+.repositoryitem{
+    width: 50%;
+    flex: 0 0 50%;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 20px #f3f3f3;
+}
+
+.repository-info,
+.repository-info__item{
+    display: flex;
+    align-items: center;
+}
+
+.repository-info{
+    padding: 0.5rem 0;
+}
+
+.repository-info__item:nth-child(2){
+    padding-left: 1rem;
+}
+
+.repositoryitem__title{
+    margin-top: 0;
+}
+
+.repository-info__icon svg{
+    width: 20px;
+}
+
+.repository-info__text{
+    margin: 0;
+    padding-left: 0.5rem;
+}

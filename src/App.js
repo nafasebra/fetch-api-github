@@ -14,7 +14,7 @@ function App() {
 		<div className="app">
 			<Header />
 
-			<div className='d-flex'>
+			<div className='app__container'>
 				<Profile />
 
 				<Repositories />
