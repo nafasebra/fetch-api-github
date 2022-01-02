@@ -16,8 +16,7 @@ const Repositories = () => {
             </div>
             
             <div className="repositories">
-                
-                <RepositoryItem />
+                 <RepositoryItem />
             </div>
 
             <div className="load-more">
