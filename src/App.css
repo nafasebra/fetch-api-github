@@ -1,5 +1,6 @@
 .app__container{
     display: flex;
     align-items: flex-start;
-    padding: 0.5rem 1rem;
+    justify-content: space-around;
+    padding: 0.5rem 1.5rem;
 }
