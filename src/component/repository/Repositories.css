@@ -1,0 +1,31 @@
+.repositories__title{
+    display: flex;
+    align-items: center;
+}
+.repositories__title span{
+    display: inline-block;
+    width: 20px;
+    height: 3px;
+    margin: 5px 10px 0;
+    background-color: #353535;
+}
+
+.load-more{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.load-more__text{
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #707070;
+    margin: 0;
+    padding: 0.5rem 1rem;
+}
+.load-more__icon{
+    color: #707070;
+}
+.load-more__icon svg{
+    width: 30px;
+    margin-top: 5px;
+}
