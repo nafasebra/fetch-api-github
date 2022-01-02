@@ -3,6 +3,20 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.profileinfo__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.profileinfo__icon svg{
+    width: 25px;
+    height: 25px;
+}
+
 .profileinfo__number{
     margin-bottom: 0;
+    font-weight: bold;
+    color: #707070;
 }

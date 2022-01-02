@@ -5,8 +5,8 @@
 
 .avatar__image{
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     overflow: hidden;
     margin-right: 1rem;
     border-radius: 50%;
@@ -17,7 +17,15 @@
     object-fit: cover;
 }
 
+.avatar-name{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #707070;
+}
+
 .avatar-aboutus{
     padding: 2rem 0;
-    color: #707070;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #aaaaaa;
 }

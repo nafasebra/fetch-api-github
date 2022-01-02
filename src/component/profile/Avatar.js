@@ -10,7 +10,7 @@ const Avatar = () => {
                 <div className='avatar__image'>
                     <img src="https://f.vividscreen.info/soft/b17ba1c70bfc81338843522be541202c/Invisible-1440x1280.jpg" alt="avatar" />
                 </div>
-                <div className='avatar__name'>Nafas Ebrahimi</div>
+                <div className='avatar-name'>Nafas Ebrahimi</div>
             </div>
             <div className='avatar-aboutus'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, eveniet.
