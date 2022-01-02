@@ -12,7 +12,9 @@ const Avatar = () => {
                 </div>
                 <div className='avatar__name'>Nafas Ebrahimi</div>
             </div>
-            <div className=''></div>
+            <div className='avatar-aboutus'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, eveniet.
+            </div>
         </div>
     );
 }

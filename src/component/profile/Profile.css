@@ -1,7 +1,9 @@
 .profile__section{
     margin: 1.5rem;
+    max-width: 25%;
     padding: 2rem;
     border-radius: 10px;
     background-color: #ffffff;
-    box-shadow: 0 3px 20px #cccccc88; 
+    box-shadow: 0 3px 20px #f3f3f3;
+    transition: box-shadow 200ms; 
 }

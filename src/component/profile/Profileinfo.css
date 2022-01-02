@@ -1,0 +1,8 @@
+.profileinfo__section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.profileinfo__number{
+    margin-bottom: 0;
+}

@@ -16,3 +16,8 @@
     height: 100%;
     object-fit: cover;
 }
+
+.avatar-aboutus{
+    padding: 2rem 0;
+    color: #707070;
+}
