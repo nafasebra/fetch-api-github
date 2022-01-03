@@ -1,3 +1,8 @@
 .footer{
+    margin-top: 3rem;
     padding: 1rem 2rem;
+    background-color: #f5f5f5;
+}
+.footer__text{
+    margin: 0;
 }
