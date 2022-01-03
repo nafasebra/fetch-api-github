@@ -2,14 +2,30 @@
 
 .header{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem ;
+}
+
+.header__left,
+.header__right{
+    display: flex;
     align-items: center;
 }
 
 .header__logo{
-    margin: 0 1rem;
+    margin-right: 1rem;
 }
 
 .header__title{
     font-family: 'Inconsolata', monospace;
+}
+
+.btn-black{
+    background-color: #212121;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
 }
