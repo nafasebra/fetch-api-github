@@ -16,16 +16,47 @@
 .header__logo{
     margin-right: 1rem;
 }
+.header__logo svg{
+    width: 30px;
+}
 
 .header__title{
     font-family: 'Inconsolata', monospace;
 }
 
 .btn-black{
+    display: flex;
+    align-items: center;
     background-color: #212121;
     border-radius: 5px;
     font-weight: bold;
     color: #ffffff;
     text-decoration: none;
     padding: 0.75rem 1.5rem;
+}
+.btn-black__icon{
+    width: 20px;
+    margin-right: 0.5rem;
+}
+.btn-black__text{
+    margin: 0;
+}
+
+@media (max-width: 556px){
+    .header__logo svg{
+        width: 25px;
+    }
+    .header__title{
+        font-size: 1rem;
+    }
+
+    .btn-black{
+        padding: 0.75rem;
+    }
+    .btn-black__icon{
+        margin: 0;
+    }
+    .btn-black__text{
+        display: none;
+    }
 }
