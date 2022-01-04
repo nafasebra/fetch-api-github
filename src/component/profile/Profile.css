@@ -7,3 +7,10 @@
     box-shadow: 0 3px 20px #f3f3f3;
     transition: box-shadow 200ms; 
 }
+
+@media (max-width: 556px) {
+    .profile__section{
+        width: 100%;
+        flex: 0 0 100%;
+    }
+}

@@ -5,3 +5,11 @@
     gap: 1rem;
     padding: 1rem 2rem;
 }
+
+@media (max-width: 556px) {
+    .app__container{
+        flex-wrap: wrap;
+        gap: 0;
+        padding: 1rem 0.5rem;
+    }
+}

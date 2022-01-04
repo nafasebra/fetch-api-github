@@ -32,3 +32,10 @@
     margin: 0;
     padding-left: 0.5rem;
 }
+
+@media (max-width: 556px) {
+    .repositoryitem{
+        width: 100%;
+        flex: 0 0 100%;
+    }
+}
