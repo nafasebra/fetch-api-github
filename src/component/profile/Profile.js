@@ -27,7 +27,11 @@ const Profile = () => {
 
     return (
         <div className='profile__section'>
-            <Avatar avatarImage={data.data.avatar_url} />
+            <Avatar 
+                avatarImage={data.data.avatar_url} 
+                profileName={data.data.name} 
+                bio={data.data.bio}    
+            />
             <Profileinfo />
         </div>
     );
