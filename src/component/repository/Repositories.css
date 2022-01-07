@@ -48,7 +48,7 @@
     margin-top: 5px;
 }
 
-@media (max-width: 556px) {
+@media (max-width: 880px) {
     .repositories__section{
         width: 100%;
         flex: 0 0 100%;

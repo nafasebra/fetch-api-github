@@ -33,7 +33,7 @@
     padding-left: 0.5rem;
 }
 
-@media (max-width: 556px) {
+@media (max-width: 880px) {
     .repositoryitem{
         width: 100%;
         flex: 0 0 100%;

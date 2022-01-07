@@ -6,9 +6,14 @@
     padding: 1rem 2rem;
 }
 
-@media (max-width: 556px) {
+@media (max-width: 880px) {
     .app__container{
         flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 556px) {
+    .app__container{
         gap: 0;
         padding: 1rem 0.5rem;
     }
