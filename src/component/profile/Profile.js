@@ -8,22 +8,26 @@ import Profileinfo from './ProfileInfo';
 import "./Profile.css";
 
 // import react query
-import {
-	useQuery,
-	useMutation,
-	useQueryClient,
-} from 'react-query';
+import { useQuery } from 'react-query';
+
+// import axios
+import axios from 'axios';
 
 // import api links
 import APILinks from './../../api/Api';
 
 
-const Profile = () => {)
+const Profile = () => {
 
+    const {data} = useQuery("fetchProfileInfo", () => 
+        axios(APILinks.profile)
+    );
+
+    console.log(data);
 
     return (
         <div className='profile__section'>
-            <Avatar />
+            <Avatar avatarImage={data.data.avatar_url} />
             <Profileinfo />
         </div>
     );
