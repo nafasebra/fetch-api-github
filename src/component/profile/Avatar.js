@@ -3,7 +3,7 @@ import React from 'react';
 // import css file
 import "./Avatar.css";
 
-const Avatar = () => {
+const Avatar = ({ avatarImage }) => {
     return (
         <div className="avatar">
             <div className='avatar__section'>

@@ -9,19 +9,29 @@ import Footer from './component/Footer';
 // import css file
 import './App.css';
 
+// import react query library
+import {
+	QueryClient,
+	QueryClientProvider,
+} from 'react-query';
+
+const queryClient = new QueryClient();
+
 
 function App() {
 	return (
 		<div className="app">
-			<Header />
+			<QueryClientProvider client={queryClient}>
+				<Header />
 
-			<div className='app__container'>
-				<Profile />
+				<div className='app__container'>
+					<Profile />
 
-				<Repositories />
-			</div>
+					<Repositories />
+				</div>
 
-			<Footer />
+				<Footer />
+			</QueryClientProvider>
 		</div>
 	)
 }
