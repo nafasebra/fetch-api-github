@@ -4,7 +4,7 @@ import React from 'react';
 import './Profileinfo.css';
 
 
-const Profileinfo = () => {
+const Profileinfo = ({ repoCount, fallowers }) => {
     return (
         <div className="profileinfo__section">
             <div className="profileinfo__item">
@@ -21,7 +21,7 @@ const Profileinfo = () => {
                         <path id="bx-git-repo-forked" d="M8.338,13.283A7.322,7.322,0,0,0,12.969,19.4C16.5,20.744,16.5,21.8,16.5,22.5v.244a5.25,5.25,0,1,0,3,0V22.5c0-.7,0-1.756,3.531-3.1a7.327,7.327,0,0,0,4.631-6.118,5.256,5.256,0,1,0-3.026-.064A4.321,4.321,0,0,1,21.969,16.6,11.282,11.282,0,0,0,18,18.9a11.269,11.269,0,0,0-3.969-2.3,4.318,4.318,0,0,1-2.667-3.378,5.249,5.249,0,1,0-3.025.062ZM26.25,6A2.25,2.25,0,1,1,24,8.25,2.253,2.253,0,0,1,26.25,6Zm-6,21.75A2.25,2.25,0,1,1,18,25.5,2.253,2.253,0,0,1,20.25,27.75ZM9.75,6A2.25,2.25,0,1,1,7.5,8.25,2.253,2.253,0,0,1,9.75,6Z" transform="translate(-4.5 -3)" fill="#707070"/>
                     </svg>
                 </div>
-                <p className="profileinfo__number">100</p>
+                <p className="profileinfo__number">{repoCount}</p>
             </div>
             <div className="infoprofile__item">
                 <div className="profileinfo__icon">
@@ -32,7 +32,7 @@ const Profileinfo = () => {
                         </g>
                     </svg>
                 </div>
-                <p className="profileinfo__number">100</p>
+                <p className="profileinfo__number">{fallowers}</p>
             </div>
         </div>
     );

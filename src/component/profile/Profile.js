@@ -47,7 +47,10 @@ const Profile = () => {
                         profileName={data.name} 
                         bio={data.bio}    
                     />
-                    <Profileinfo />
+                    <Profileinfo 
+                        repoCount={data.public_repos}
+                        fallowers={data.followers}
+                    />
                 </>
                 : null
             }
