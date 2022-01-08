@@ -1,6 +1,11 @@
-const APILinks = {
-    profile: "https://api.github.com/users/nafasebra",
-    repo: "https://api.github.com/users/nafasebra/repos"
-}
+import axios from "axios";
 
-export default APILinks;
+const APILink = axios.create({
+    baseURL: "https://api.github.com/"
+})
+
+export const getUserInfo = () => APILink.get("/users/nafasebra")
+                                .then(res => res.data);
+
+export const getRepoInfo = () => APILink.get("/users/nafasebra/repos")
+                                .then(res => res.data);

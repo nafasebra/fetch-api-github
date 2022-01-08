@@ -10,27 +10,42 @@ import "./Profile.css";
 // import react query
 import { useQuery } from 'react-query';
 
-// import axios
-import axios from 'axios';
-
 // import api links
-import APILinks from './../../api/Api';
+import { getUserInfo, getRepoInfo } from './../../api/Api';
 
 
 const Profile = () => {
 
-    const {data} = useQuery("fetchProfileInfo", () => 
-        axios(APILinks.profile)
-    );
+    const {
+        data,
+        isError,
+        error
+    } = useQuery("fetchProfileInfo",  getUserInfo);
 
-    console.log(data);
+    // const getStarsCount = () => {
+        
+    // }
+
+    // const getRepoCount = () => {
+
+    // }
+
+    // const getFollowerCount = () => {
+
+    // }
+
+    
+
+    console.log(data)
+
+    if(isError) return <h2>Error</h2>
 
     return (
         <div className='profile__section'>
             <Avatar 
-                avatarImage={data.data.avatar_url} 
-                profileName={data.data.name} 
-                bio={data.data.bio}    
+                // avatarImage={data.data.avatar_url} 
+                // profileName={data.data.name} 
+                // bio={data.data.bio}    
             />
             <Profileinfo />
         </div>
