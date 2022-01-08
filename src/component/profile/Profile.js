@@ -11,15 +11,14 @@ import "./Profile.css";
 import { useQuery } from 'react-query';
 
 // import api links
-import { getUserInfo, getRepoInfo } from './../../api/Api';
+import { getUserInfo } from './../../api/Api';
 
 
 const Profile = () => {
 
     const {
         data,
-        isError,
-        error
+        isFetched
     } = useQuery("fetchProfileInfo",  getUserInfo);
 
     // const getStarsCount = () => {
@@ -38,18 +37,22 @@ const Profile = () => {
 
     console.log(data)
 
-    if(isError) return <h2>Error</h2>
-
     return (
         <div className='profile__section'>
-            <Avatar 
-                // avatarImage={data.data.avatar_url} 
-                // profileName={data.data.name} 
-                // bio={data.data.bio}    
-            />
-            <Profileinfo />
+            {
+                isFetched ?
+                <>
+                    <Avatar 
+                        avatarImage={data.avatar_url} 
+                        profileName={data.name} 
+                        bio={data.bio}    
+                    />
+                    <Profileinfo />
+                </>
+                : null
+            }
         </div>
-    );
+    )
 }
 
 export default Profile;
