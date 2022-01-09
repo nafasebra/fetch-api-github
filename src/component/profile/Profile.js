@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 // import component
 import Avatar from './Avatar';
@@ -11,51 +11,50 @@ import "./Profile.css";
 import { useQuery } from 'react-query';
 
 // import api links
-import { getUserInfo } from './../../api/Api';
+import { getUserInfo, getStarsUser } from './../../api/Api';
 
 
-const Profile = () => {
-
-    const {
-        data,
-        isFetched
-    } = useQuery("fetchProfileInfo",  getUserInfo);
-
-    // const getStarsCount = () => {
-        
-    // }
-
-    // const getRepoCount = () => {
-
-    // }
-
-    // const getFollowerCount = () => {
-
-    // }
-
+const Profile = memo(() => {
     
+    // const {
+    //     data,
+    //     isFetched
+    // } = useQuery("fetchProfileInfo",  getUserInfo);
 
-    console.log(data)
+
+    const { 
+        data: data_user,
+        isFetched: is_fetch_user
+    } = useQuery("fetchProfileInfo",  getUserInfo);
+    
+    const { 
+        data: data_stars,
+        isFetched: is_fetch_star
+    } = useQuery("fetchStars",  getStarsUser);
+
+    // console.log(data_user);
+    console.log(data_stars);
 
     return (
         <div className='profile__section'>
             {
-                isFetched ?
+                is_fetch_user && is_fetch_star ?
                 <>
                     <Avatar 
-                        avatarImage={data.avatar_url} 
-                        profileName={data.name} 
-                        bio={data.bio}    
+                        avatarImage={data_user.avatar_url} 
+                        profileName={data_user.name} 
+                        bio={data_user.bio}    
                     />
                     <Profileinfo 
-                        repoCount={data.public_repos}
-                        fallowers={data.followers}
+                        starsCount={data_stars.length}
+                        repoCount={data_user.public_repos}
+                        fallowers={data_user.followers}
                     />
                 </>
                 : null
             }
         </div>
     )
-}
+})
 
 export default Profile;

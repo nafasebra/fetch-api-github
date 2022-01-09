@@ -9,3 +9,6 @@ export const getUserInfo = () => APILink.get("/users/nafasebra")
 
 export const getRepoInfo = () => APILink.get("/users/nafasebra/repos")
                                 .then(res => res.data);
+
+export const getStarsUser = () => APILink.get("/users/nafasebra/starred")
+                                    .then(res => res.data);
