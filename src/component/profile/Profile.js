@@ -15,13 +15,6 @@ import { getUserInfo, getStarsUser } from './../../api/Api';
 
 
 const Profile = memo(() => {
-    
-    // const {
-    //     data,
-    //     isFetched
-    // } = useQuery("fetchProfileInfo",  getUserInfo);
-
-
     const { 
         data: data_user,
         isFetched: is_fetch_user
@@ -31,9 +24,6 @@ const Profile = memo(() => {
         data: data_stars,
         isFetched: is_fetch_star
     } = useQuery("fetchStars",  getStarsUser);
-
-    // console.log(data_user);
-    console.log(data_stars);
 
     return (
         <div className='profile__section'>

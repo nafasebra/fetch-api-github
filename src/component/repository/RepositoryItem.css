@@ -16,8 +16,8 @@
     padding: 0.5rem 0;
 }
 
-.repository-info__item:nth-child(2){
-    padding-left: 1rem;
+.repository-info__item{
+    padding-right: 1rem;
 }
 
 .repositoryitem__title{
