@@ -1,5 +1,5 @@
 # fetch api github
-### fetch repository info from the github account
+### fetch repository info from the github account with Github API
 
 ### Feature:
 - get repository list 
@@ -7,6 +7,26 @@
 - get stars and forks of repository
 - I Designed the Ui and include the .xd file in this repo (fetch-api-github.xd)
 - Responsive layout
+
+
+## for use
+you can fetch api from your github profile, then:
+
+```
+
+export const getUserInfo = () => APILink.get("/users/nafasebra")
+                                .then(res => res.data);
+
+export const getRepoInfo = () => APILink.get("/users/nafasebra/repos")
+                                .then(res => res.data);
+
+export const getStarsUser = () => APILink.get("/users/nafasebra/starred")
+                                    .then(res => res.data);
+
+```
+
+in `api.js` file from `src/api` directory, and
+put you name (username) instead of "nafasebra"
 
 
 ## Available Scripts
