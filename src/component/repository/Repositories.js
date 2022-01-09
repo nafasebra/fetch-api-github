@@ -36,7 +36,12 @@ const Repositories = memo(() => {
                     <div className="repositories">
                         {
                             data.map(item => <RepositoryItem 
-                                                key={item.id}    
+                                                key={item.id}
+                                                name={item.name}
+                                                description={item.description}
+                                                forkCount={item.forks_count}
+                                                starCount={item.stargazers_count}
+                                                watchCount={item.watchers_count}
                                             />)
                         }
                     </div>
