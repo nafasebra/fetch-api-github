@@ -10,18 +10,25 @@ import "./Repositories.css"
 import { getRepoInfo } from './../../api/Api'
 
 // import react query
-import { useQuery } from 'react-query';
+import { useInfiniteQuery, useQuery } from 'react-query';
 
 
 const Repositories = memo(() => {
 
     const {
         data,
-        isFetched
-    } = useQuery("fetchRepoInfos", getRepoInfo);
+        isFetched,
+        fetchNextPage,
+        hasNextPage
+    } = useInfiniteQuery(
+        "fetchRepoInfos",
+        getRepoInfo,
+        {
+            getNextPageParam: lastPage => lastPage.nextId ?? false
+        });
 
+    // console.log(data)
 
-    console.log(data);
 
     return (
         <div className="repositories__section">
@@ -46,7 +53,10 @@ const Repositories = memo(() => {
                         }
                     </div>
                     
-                    <div className="load-more">
+                    <div 
+                        className="load-more"
+                        onClick={() => fetchNextPage}
+                    >
                         <p className="load-more__text">Load more</p>
                         <div className="load-more__icon">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>

@@ -1,6 +1,8 @@
 # fetch api github
 ### fetch repository info from the github account with Github API
 
+I use axios and react query for fetch data from the github api
+
 ### Feature:
 - get repository list 
 - get follower, stars and repositories of user account
