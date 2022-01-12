@@ -10,7 +10,7 @@ import "./Repositories.css"
 import { getRepoInfo } from './../../api/Api'
 
 // import react query
-import { useInfiniteQuery, useQuery } from 'react-query';
+import { useInfiniteQuery } from 'react-query';
 
 
 const Repositories = memo(() => {
@@ -19,15 +19,21 @@ const Repositories = memo(() => {
         data,
         isFetched,
         fetchNextPage,
-        hasNextPage
+        hasNextPage,
+        isLoading,
+        isFetching,
+        error
     } = useInfiniteQuery(
-        "fetchRepoInfos",
-        getRepoInfo,
+        "fetchRepoInfos", getRepoInfo, 
         {
-            getNextPageParam: lastPage => lastPage.nextId ?? false
+            getNextPageParam: (lastPage, pages) => {
+                if (lastPage.page < lastPage.total_pages) return lastPage.page + 1;
+                return false;
+            }
         });
 
-    // console.log(data)
+    console.log(data)
+    console.log(error)
 
 
     return (
@@ -38,7 +44,7 @@ const Repositories = memo(() => {
             </div>
             
             {
-                isFetched ?
+                isFetched && data !== undefined ?
                 <>
                     <div className="repositories">
                         {
@@ -53,15 +59,19 @@ const Repositories = memo(() => {
                         }
                     </div>
                     
-                    <div 
-                        className="load-more"
-                        onClick={() => fetchNextPage}
-                    >
-                        <p className="load-more__text">Load more</p>
-                        <div className="load-more__icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    {
+                        hasNextPage ?
+                        <div 
+                            className="load-more"
+                            onClick={() => fetchNextPage}
+                        >
+                            <p className="load-more__text">Load more</p>
+                            <div className="load-more__icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </div>
                         </div>
-                    </div>
+                        : null
+                    }
                 </>
                 :
                 <h2>you have not Repo!</h2>

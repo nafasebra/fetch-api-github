@@ -9,10 +9,21 @@ I use axios and react query for fetch data from the github api
 - get stars and forks of repository
 - I Designed the Ui and include the .xd file in this repo (fetch-api-github.xd)
 - Responsive layout
+- Load more repositories
+
+# what technology did i use?
+- create react app
+- axios 
+- react query (usequery and useinfinitequery hooks)
+- pure CSS
 
 
 ## for use
-you can fetch api from your github profile, then:
+1 - install npm 
+2 - next install yarn 
+3 - clone the repo 
+4 - run `yarn install`
+5 - you can fetch api from your github profile, then:
 
 ```
 
