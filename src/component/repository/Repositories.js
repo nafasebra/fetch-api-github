@@ -2,6 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 
 // import component
 import RepositoryItem from './RepositoryItem';
+import NotExistPanel from '../NotExistPanel';
 
 //import css file
 import "./Repositories.css"
@@ -22,7 +23,6 @@ const Repositories = memo(() => {
         isFetched,
         error
     } = useQuery("fetchRepoInfos", getRepoInfo, {retryOnMount: true});
-    
 
     useEffect(() => {
         console.log(data)
@@ -35,7 +35,7 @@ const Repositories = memo(() => {
     }
 
     const loadMoreRepos = () => {
-        console.log('load more...');
+        console.log('load more repositories...');
     }
 
     return (
@@ -63,7 +63,7 @@ const Repositories = memo(() => {
                     
                     <div 
                         className="load-more"
-                        onClick={() => loadMoreRepos}
+                        onClick={loadMoreRepos}
                     >
                         <p className="load-more__text">Load more</p>
                         <div className="load-more__icon">
@@ -72,7 +72,7 @@ const Repositories = memo(() => {
                     </div>
                 </>
                 :
-                <p>you have not Repo!</p>
+                <NotExistPanel notExistText="you have not Repo!" />
             }
         </div>
     );
