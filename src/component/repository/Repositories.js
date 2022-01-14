@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 
 // import component
 import RepositoryItem from './RepositoryItem';
@@ -15,14 +15,28 @@ import { useQuery } from 'react-query';
 
 const Repositories = memo(() => {
 
+    const [repos, setRepos] = useState([]);
+
     const {
         data,
         isFetched,
         error
-    } = useQuery("fetchRepoInfos", getRepoInfo);
+    } = useQuery("fetchRepoInfos", getRepoInfo, {retryOnMount: true});
+    
 
-    console.log(data)
-    console.log(error)
+    useEffect(() => {
+        console.log(data)
+        console.log(error)
+        initRepos();
+    }, [data]);
+
+    const initRepos = () => {
+        setRepos(data || []);
+    }
+
+    const loadMoreRepos = () => {
+        console.log('load more...');
+    }
 
     return (
         <div className="repositories__section">
@@ -49,6 +63,7 @@ const Repositories = memo(() => {
                     
                     <div 
                         className="load-more"
+                        onClick={() => loadMoreRepos}
                     >
                         <p className="load-more__text">Load more</p>
                         <div className="load-more__icon">
