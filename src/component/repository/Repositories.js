@@ -10,7 +10,7 @@ import "./Repositories.css"
 import { getRepoInfo } from './../../api/Api'
 
 // import react query
-import { useInfiniteQuery } from 'react-query';
+import { useQuery } from 'react-query';
 
 
 const Repositories = memo(() => {
@@ -18,23 +18,11 @@ const Repositories = memo(() => {
     const {
         data,
         isFetched,
-        fetchNextPage,
-        hasNextPage,
-        isLoading,
-        isFetching,
         error
-    } = useInfiniteQuery(
-        "fetchRepoInfos", getRepoInfo, 
-        {
-            getNextPageParam: (lastPage, pages) => {
-                if (lastPage.page < lastPage.total_pages) return lastPage.page + 1;
-                return false;
-            }
-        });
+    } = useQuery("fetchRepoInfos", getRepoInfo);
 
     console.log(data)
     console.log(error)
-
 
     return (
         <div className="repositories__section">
@@ -59,22 +47,17 @@ const Repositories = memo(() => {
                         }
                     </div>
                     
-                    {
-                        hasNextPage ?
-                        <div 
-                            className="load-more"
-                            onClick={() => fetchNextPage}
-                        >
-                            <p className="load-more__text">Load more</p>
-                            <div className="load-more__icon">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </div>
+                    <div 
+                        className="load-more"
+                    >
+                        <p className="load-more__text">Load more</p>
+                        <div className="load-more__icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </div>
-                        : null
-                    }
+                    </div>
                 </>
                 :
-                <h2>you have not Repo!</h2>
+                <p>you have not Repo!</p>
             }
         </div>
     );

@@ -12,34 +12,27 @@ I use axios and react query for fetch data from the github api
 - Load more repositories
 
 # what technology did i use?
+- Adobe XD (design UI of the project)
 - create react app
 - axios 
-- react query (usequery and useinfinitequery hooks)
+- react query
 - pure CSS
 
 
 ## for use
-1 - install npm 
-2 - next install yarn 
-3 - clone the repo 
-4 - run `yarn install`
-5 - you can fetch api from your github profile, then:
+- install npm 
+- next install yarn 
+- clone the repo 
+- run `yarn install`
+
+```
+// you can type your github username instead of 'nafasebra'
+const username = "nafasebra"; 
 
 ```
 
-export const getUserInfo = () => APILink.get("/users/nafasebra")
-                                .then(res => res.data);
-
-export const getRepoInfo = () => APILink.get("/users/nafasebra/repos")
-                                .then(res => res.data);
-
-export const getStarsUser = () => APILink.get("/users/nafasebra/starred")
-                                    .then(res => res.data);
-
-```
-
-in `api.js` file from `src/api` directory, and
-put you name (username) instead of "nafasebra"
+- in `api.js` file from `src/api` directory, put you github username instead of "nafasebra" 
+- enjoy :)
 
 
 ## Available Scripts

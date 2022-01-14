@@ -4,13 +4,17 @@ const APILink = axios.create({
     baseURL: "https://api.github.com/"
 })
 
-export const getUserInfo = () => APILink.get("/users/nafasebra").then(res => res.data);
+// you can type your github username instead of 'nafasebra'
+const username = "nafasebra"; 
 
+export const getUserInfo = () => {
+    APILink.get(`/users/${username}`).then(res => res.data);
+}
 
-export const getStarsUser = () => APILink.get("/users/nafasebra/starred").then(res => res.data);
+export const getStarsUser = () => {
+    APILink.get(`/users/${username}/starred`).then(res => res.data);
+}
 
-
-export const getRepoInfo = ({ pageParam = 0 }) => {
-    APILink.get(`/users/nafasebra/repos?page=${pageParam}`)
-            .then(res => res.data);
+export const getRepoInfo = () => {
+    APILink.get(`/users/${username}/repos`).then(res => res.data);
 }
