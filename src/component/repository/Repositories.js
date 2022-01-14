@@ -36,6 +36,7 @@ const Repositories = memo(() => {
 
     const loadMoreRepos = () => {
         console.log('load more repositories...');
+        console.log(repos);
     }
 
     return (

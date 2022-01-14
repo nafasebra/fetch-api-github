@@ -1,0 +1,19 @@
+.NotExist__section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 3rem 0;
+}
+
+.NotExist__section img{
+    width: 120px;
+}
+
+.NotExist__text{
+    margin: 1.5rem 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+}

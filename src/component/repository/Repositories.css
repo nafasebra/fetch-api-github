@@ -1,6 +1,7 @@
 .repositories__section{
     width: 75%;
     flex: 0 0 75%;
+    min-height: calc(100vh - 200px);
 }
 
 .repositories__title{
