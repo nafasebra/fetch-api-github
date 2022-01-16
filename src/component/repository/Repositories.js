@@ -47,7 +47,7 @@ const Repositories = memo(() => {
             </div>
             
             {
-                isFetched && data !== undefined ?
+                isFetched ?
                 <>
                     <div className="repositories">
                         {
@@ -58,6 +58,7 @@ const Repositories = memo(() => {
                                                 forkCount={item.forks_count}
                                                 starCount={item.stargazers_count}
                                                 watchCount={item.watchers_count}
+                                                topics={item.topics}
                                             />)
                         }
                     </div>

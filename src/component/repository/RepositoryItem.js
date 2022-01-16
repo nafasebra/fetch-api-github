@@ -11,7 +11,8 @@ const Repositoryitem = (props) => {
         description,
         forkCount,
         starCount,
-        watchCount
+        watchCount,
+        topics
     } = props;
 
     return (
@@ -22,6 +23,9 @@ const Repositoryitem = (props) => {
             <p className="repositoryitem__desc">
                 {description}
             </p>
+            <div className="topics">
+                {topics.map(item => <div className="topics__item">{item}</div>)}
+            </div>
             <div className="repository-info">
                 <div className="repository-info__item">
                     <div className="repository-info__icon">

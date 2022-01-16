@@ -33,6 +33,18 @@
     padding-left: 0.5rem;
 }
 
+.topics{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+}
+.topics__item{
+    padding: 0.35rem 0.5rem;
+    margin: 3px;
+    border-radius: 3px;
+    background-color: #f0f0f0;
+}
+
 @media (max-width: 880px) {
     .repositoryitem{
         width: 100%;
