@@ -5,7 +5,7 @@ const APILink = axios.create({
 })
 
 // you can type your github username instead of 'nafasebra'
-let username = "nafasebra"; 
+let username = "basemax"; 
 
 export const getUserInfo = () => APILink.get(`/users/${username}`).then(res => res.data);
 

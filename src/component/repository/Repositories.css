@@ -22,7 +22,7 @@
     -webkit-gap: 15px;
     -moz-gap: 15px;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 1rem;
 }
 
