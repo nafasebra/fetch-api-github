@@ -4,7 +4,7 @@ import React from 'react';
 import './NotExistPanel.css';
 
 // import asset file
-import image from './../assets/ghost.png';
+import image from './../../assets/ghost.png';
 
 
 const NotExistPanel = ({ notExistText }) => {

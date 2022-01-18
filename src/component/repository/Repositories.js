@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 
 // import component
 import RepositoryItem from './RepositoryItem';
-import NotExistPanel from '../NotExistPanel';
+import NotExistPanel from '../helper/NotExistPanel';
 
 //import css file
 import "./Repositories.css"
