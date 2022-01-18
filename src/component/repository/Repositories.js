@@ -33,7 +33,7 @@ const Repositories = memo(() => {
         if(data !== undefined) {
             setRepos(data.slice(0, displayShowRepo));
         }
-    }, [ repos, data ]);
+    }, [ data, displayShowRepo ]);
 
     const initRepos = () => {
         setRepos(data || []);
@@ -49,7 +49,7 @@ const Repositories = memo(() => {
                 <span className="slash"></span>
                 <h2>
                     Public repositories 
-                    { data && ` (${data.length})` }
+                    { isFetched ? ` (${data.length})` : " (0)" }
                 </h2>
             </div>
             
@@ -58,8 +58,8 @@ const Repositories = memo(() => {
                 <>
                     <div className="repositories">
                         {
-                            repos.map(item => <RepositoryItem 
-                                                key={item.id}
+                            repos.map((item, index) => <RepositoryItem 
+                                                key={index}
                                                 name={item.name}
                                                 description={item.description}
                                                 forkCount={item.forks_count}

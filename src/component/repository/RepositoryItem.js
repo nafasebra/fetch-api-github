@@ -24,7 +24,7 @@ const Repositoryitem = (props) => {
                 {description}
             </p>
             <div className="topics">
-                {topics.map(item => <div className="topics__item">{item}</div>)}
+                {topics.map((item, index) => <div key={index} className="topics__item">{item}</div>)}
             </div>
             <div className="repository-info">
                 <div className="repository-info__item">
