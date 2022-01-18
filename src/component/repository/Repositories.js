@@ -24,6 +24,7 @@ const Repositories = memo(() => {
     const {
         data,
         isFetched,
+        isLoading,
         error
     } = useQuery("fetchRepoInfos", getRepoInfo, {retryOnMount: true});
 
@@ -39,7 +40,6 @@ const Repositories = memo(() => {
     }
 
     const loadMoreRepos = () => {
-        console.log('load more repositories...');
         setDisplayShowRepo(displayShowRepo + 5);
     }
 
@@ -47,11 +47,11 @@ const Repositories = memo(() => {
         <div className="repositories__section">
             <div className="repositories__title">
                 <span className="slash"></span>
-                <h2>Last Repositories</h2>
+                <h2>Last Repositories ({data.length}) </h2>
             </div>
             
             {
-                isFetched ?
+                isFetched &&
                 <>
                     <div className="repositories">
                         {
@@ -66,9 +66,9 @@ const Repositories = memo(() => {
                                             />)
                         }
                     </div>
-                    
-                    {
-                        data.length > 5 ?
+                     
+                    { 
+                        data.length > 5 && displayShowRepo <= data.length ?
                         <div className="load-more" onClick={loadMoreRepos} >
                             <p className="load-more__text">Load more</p>
                             <div className="load-more__icon">
@@ -78,9 +78,9 @@ const Repositories = memo(() => {
                         : null
                     }
                 </>
-                :
-                <NotExistPanel notExistText="you have not Repo!" />
             }
+            { error && <NotExistPanel notExistText="you have not Repo!" /> }
+            {  }
         </div>
     );
 })
