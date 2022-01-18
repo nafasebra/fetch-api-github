@@ -19,8 +19,6 @@ const Repositories = memo(() => {
     const [repos, setRepos] = useState([]);
     const [displayShowRepo, setDisplayShowRepo] = useState(5);
 
-    //let sliceRepos = [];
-
     const {
         data,
         isFetched,
@@ -28,6 +26,7 @@ const Repositories = memo(() => {
         error
     } = useQuery("fetchRepoInfos", getRepoInfo, {retryOnMount: true});
 
+    
     useEffect(() => {
         initRepos();
         if(data !== undefined) {
@@ -47,7 +46,10 @@ const Repositories = memo(() => {
         <div className="repositories__section">
             <div className="repositories__title">
                 <span className="slash"></span>
-                <h2>Last Repositories ({data.length}) </h2>
+                <h2>
+                    Last Repositories 
+                    { data && ` (${data.length})` }
+                </h2>
             </div>
             
             {
