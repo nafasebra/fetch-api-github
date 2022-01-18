@@ -14,10 +14,12 @@
 
 .repository-info{
     padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
 }
 
 .repository-info__item{
-    padding-right: 1rem;
+    padding-right: 1.2rem;
 }
 
 .repositoryitem__title{
@@ -25,7 +27,7 @@
 }
 
 .repository-info__icon svg{
-    width: 20px;
+    width: 15px;
 }
 
 .repository-info__text{

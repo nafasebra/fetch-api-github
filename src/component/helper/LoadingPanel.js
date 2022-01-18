@@ -4,13 +4,17 @@ import React from 'react';
 import './LoadingPanel.css';
 
 
-const Loadingpanel = () => {
+const LoadingPanel = () => {
     return (
         <div className="loading">
-            <div className="loading__icon"></div>
+            <div className="loading__icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <p className="loading__text">loading...</p>
         </div>
     );
 }
 
-export default Loadingpanel;
+export default LoadingPanel;
