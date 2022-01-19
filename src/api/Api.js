@@ -11,4 +11,4 @@ export const getUserInfo = () => APILink.get(`/users/${username}`).then(res => r
 
 export const getStarsUser = () => APILink.get(`/users/${username}/starred`).then(res => res.data);
 
-export const getRepoInfo = () => APILink.get(`/users/${username}/repos`).then(res => res.data);
+export const getRepoInfo = () => APILink.get(`/users/${username}/repos?per_page=100`).then(res => res.data);

@@ -28,10 +28,15 @@
 
 .repositoryitem__title{
     margin-top: 0;
+    word-wrap: break-word;
 }
 
+.repository-info__icon{
+    display: flex;
+    align-items: center;
+}
 .repository-info__icon svg{
-    width: 15px;
+    width: 17px;
 }
 
 .repository-info__text{

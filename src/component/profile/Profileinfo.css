@@ -11,6 +11,10 @@
     align-items: center;
 }
 
+.profileinfo__icon{
+    display: flex;
+    justify-content: center;
+}
 .profileinfo__icon svg{
     width: 25px;
     height: 25px;
