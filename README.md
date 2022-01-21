@@ -7,12 +7,10 @@ I use axios and react query for fetch data from the github api
 - get repository list 
 - get follower, stars and repositories of user account
 - get stars and forks of repository
-- I Designed the Ui and include the .xd file in this repo (fetch-api-github.xd)
 - Responsive layout
-- Load more repositories
+- Pagination repositories
 
 # what technology did i use?
-- Adobe XD (design UI of the project)
 - create react app
 - axios 
 - react query
