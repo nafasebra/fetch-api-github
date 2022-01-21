@@ -1,0 +1,34 @@
+.pagination__section{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-link{
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px #2121213b;
+    background-color: #212121;
+    color: #ffffff;
+    opacity: 0.5;
+}
+.btn-link.active{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.btn-link:nth-child(1) svg{
+    width: 20px;
+    margin-right: 0.5rem;
+}
+.btn-link:nth-child(2) svg{
+    width: 20px;
+    margin-left: 0.5rem;
+}
+
+.btn-link span{
+    font-size: 1rem;
+}

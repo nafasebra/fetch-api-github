@@ -1,9 +1,10 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useState } from 'react';
 
 // import component
 import RepositoryItem from './RepositoryItem';
 import NotExistPanel from '../helper/NotExistPanel';
 import LoadingPanel from '../helper/LoadingPanel';
+import Pagination from './Pagination';
 
 //import css file
 import "./Repositories.css"
@@ -17,8 +18,7 @@ import { useQuery } from 'react-query';
 
 const Repositories = memo(() => {
 
-    const [repos, setRepos] = useState([]);
-    const [displayShowRepo, setDisplayShowRepo] = useState(5);
+    const [repos] = useState([]);
 
     const {
         data,
@@ -27,34 +27,20 @@ const Repositories = memo(() => {
         error
     } = useQuery("fetchRepoInfos", getRepoInfo, {retryOnMount: true});
 
+    const prevRepo = () => {
+        console.log('prev repo');
+    } 
     
-    useEffect(() => {
-        initRepos();
-        if(data !== undefined) {
-            setRepos(data.slice(0, displayShowRepo));
-        }
-    }, [ data, displayShowRepo ]);
-
-
-    useEffect(() => {
-        isFetched && console.log(data);
-    }, [ data ])
-
-    const initRepos = () => {
-        setRepos(data || []);
-    }
-
-    const loadMoreRepos = () => {
-        setDisplayShowRepo(displayShowRepo + 5);
-    }
+    const nextRepo = () => {
+        console.log('next repo');
+    } 
 
     return (
         <div className="repositories__section">
             <div className="repositories__title">
                 <span className="slash"></span>
                 <h2>
-                    Public repositories 
-                    { isFetched ? ` (${data.length})` : " (0)" }
+                    Public repositories
                 </h2>
             </div>
             
@@ -76,13 +62,11 @@ const Repositories = memo(() => {
                     </div>
                      
                     { 
-                        data.length > 5 && displayShowRepo <= data.length ?
-                            <div className="load-more" onClick={loadMoreRepos} >
-                                <p className="load-more__text">Load more</p>
-                                <div className="load-more__icon">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                                </div>
-                            </div>  
+                        data.length > 5 ?
+                            <Pagination 
+                                prevFunc={prevRepo}  
+                                nextFunc={nextRepo}
+                            />
                         : null
                     }
                 </>
