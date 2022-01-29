@@ -20,19 +20,24 @@ const Repositories = memo(() => {
 
     const [repos] = useState([]);
 
+    const [pageNumber, setPageNumber] = useState(1);
+
     const {
         data,
         isFetched,
         isLoading,
         error
-    } = useQuery("fetchRepoInfos", getRepoInfo, {retryOnMount: true});
+    } = useQuery(["fetchRepoInfos", pageNumber], getRepoInfo, {retryOnMount: true});
 
     const prevRepo = () => {
         console.log('prev repo');
+        if(pageNumber > 0)
+            setPageNumber(pageNumber - 1)
     } 
     
     const nextRepo = () => {
         console.log('next repo');
+        setPageNumber(pageNumber + 1);
     } 
 
     return (
@@ -49,12 +54,12 @@ const Repositories = memo(() => {
                 <>
                     <div className="repositories">
                         {
-                            repos.map((item, index) => <RepositoryItem 
+                            data.map((item, index) => <RepositoryItem 
                                                 key={index}
                                                 name={item.name}
                                                 description={item.description}
                                                 forkCount={item.forks_count}
-                                                starCount={item.stargazers_count}
+                                                starCo unt={item.stargazers_count}
                                                 watchCount={item.watchers_count}
                                                 topics={item.topics}
                                             />)
@@ -66,6 +71,7 @@ const Repositories = memo(() => {
                             <Pagination 
                                 prevFunc={prevRepo}  
                                 nextFunc={nextRepo}
+                                isFirstPage={true}
                             />
                         : null
                     }
