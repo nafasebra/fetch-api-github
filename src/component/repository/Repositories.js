@@ -27,7 +27,7 @@ const Repositories = memo(() => {
         isFetched,
         isLoading,
         error
-    } = useQuery(["fetchRepoInfos", pageNumber], getRepoInfo, {retryOnMount: true});
+    } = useQuery(["fetchRepoInfos", pageNumber], getRepoInfo);
 
     const prevRepo = () => {
         console.log('prev repo');
@@ -72,6 +72,7 @@ const Repositories = memo(() => {
                                 prevFunc={prevRepo}  
                                 nextFunc={nextRepo}
                                 isFirstPage={true}
+                                isLastPage={false}
                             />
                         : null
                     }
