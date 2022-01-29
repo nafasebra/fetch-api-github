@@ -7,16 +7,16 @@ const APILink = axios.create({
 })
 
 // you can type your github username instead of 'nafasebra'
-export let username = "basemax";
+let username = "basemax";
 
 
-export const getUserInfo = () => APILink.get(`/users/${username}`).then(res => res.data);
+export const getUserInfo = () => APILink.get(`/users/${username}`).then(res => res.data).catch(err => console.log(err));
 
-export const getStarsUser = () => APILink.get(`/users/${username}/starred`).then(res => res.data);
+export const getStarsUser = () => APILink.get(`/users/${username}/starred`).then(res => res.data).catch(err => console.log(err));
 
 export const getRepoInfo = async({ queryKey }) => {
-    const [_, pageNumber] = queryKey;
-    const data = await APILink.get(`/users/${username}/repos?page=${pageNumber}`);
+    const [pageNumber] = queryKey;
+    const data = await APILink.get(`/users/${username}/repos?page=${pageNumber}&per_page=40`);
     console.log(pageNumber)
     return data.data
 }

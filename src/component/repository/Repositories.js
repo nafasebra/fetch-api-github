@@ -21,6 +21,7 @@ const Repositories = memo(() => {
 
     const [pageNumber, setPageNumber] = useState(1);
     let totalPage = 0;
+    let isLastPage = false;
 
     const {
         data,
@@ -33,7 +34,7 @@ const Repositories = memo(() => {
     const {
         data: dataUser,
         isFetched: isFetchedUser
-    } = useQuery(["fetchNumberOfRepos"], getUserInfo);
+    } = useQuery(["fetchNumberOfRepos"], getUserInfo, {retryOnMount: true});
 
 
     const prevRepo = () => {
@@ -49,7 +50,11 @@ const Repositories = memo(() => {
 
     const totalPages = () => {
         if(isFetchedUser) {
-            totalPage = dataUser.public_repos / 30;
+            totalPage = parseInt(dataUser.public_repos / 10);
+            console.log("set totalpage " + totalPage)
+            if(totalPage === pageNumber){
+                isLastPage = true;
+            }
         }
     }
 
@@ -91,7 +96,7 @@ const Repositories = memo(() => {
                                 prevFunc={prevRepo}  
                                 nextFunc={nextRepo}
                                 isFirst={pageNumber === 1 ? true : false}
-                                isLast={totalPage === pageNumber ? true : false}
+                                isLast={isLastPage}
                             />
                         : null
                     }
