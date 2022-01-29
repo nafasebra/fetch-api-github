@@ -17,5 +17,6 @@ export const getStarsUser = () => APILink.get(`/users/${username}/starred`).then
 export const getRepoInfo = async({ queryKey }) => {
     const [_, pageNumber] = queryKey;
     const data = await APILink.get(`/users/${username}/repos?page=${pageNumber}`);
+    console.log(pageNumber)
     return data.data
 }

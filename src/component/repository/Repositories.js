@@ -10,17 +10,17 @@ import Pagination from './Pagination';
 import "./Repositories.css"
 
 // import api
-import { getRepoInfo } from './../../api/Api'
+import { getRepoInfo, getUserInfo } from './../../api/Api'
 
 // import react query
 import { useQuery } from 'react-query';
+import { useEffect } from 'react/cjs/react.development';
 
 
 const Repositories = memo(() => {
 
-    const [repos] = useState([]);
-
     const [pageNumber, setPageNumber] = useState(1);
+    let totalPage = 0;
 
     const {
         data,
@@ -29,9 +29,16 @@ const Repositories = memo(() => {
         error
     } = useQuery(["fetchRepoInfos", pageNumber], getRepoInfo);
 
+
+    const {
+        data: dataUser,
+        isFetched: isFetchedUser
+    } = useQuery(["fetchNumberOfRepos"], getUserInfo);
+
+
     const prevRepo = () => {
         console.log('prev repo');
-        if(pageNumber > 0)
+        if(pageNumber > 1)
             setPageNumber(pageNumber - 1)
     } 
     
@@ -40,12 +47,24 @@ const Repositories = memo(() => {
         setPageNumber(pageNumber + 1);
     } 
 
+    const totalPages = () => {
+        if(isFetchedUser) {
+            totalPage = dataUser.public_repos / 30;
+        }
+    }
+
+    useEffect(() => {
+        totalPages();
+    }, [dataUser, totalPage])
+
+
     return (
         <div className="repositories__section">
             <div className="repositories__title">
                 <span className="slash"></span>
                 <h2>
                     Public repositories
+                    {isFetchedUser && ` (${dataUser.public_repos})`}
                 </h2>
             </div>
             
@@ -59,7 +78,7 @@ const Repositories = memo(() => {
                                                 name={item.name}
                                                 description={item.description}
                                                 forkCount={item.forks_count}
-                                                starCo unt={item.stargazers_count}
+                                                starCount={item.stargazers_count}
                                                 watchCount={item.watchers_count}
                                                 topics={item.topics}
                                             />)
@@ -71,8 +90,8 @@ const Repositories = memo(() => {
                             <Pagination 
                                 prevFunc={prevRepo}  
                                 nextFunc={nextRepo}
-                                isFirstPage={true}
-                                isLastPage={false}
+                                isFirst={pageNumber === 1 ? true : false}
+                                isLast={totalPage === pageNumber ? true : false}
                             />
                         : null
                     }
