@@ -20,8 +20,7 @@ import { useEffect } from 'react/cjs/react.development';
 const Repositories = memo(() => {
 
     const [pageNumber, setPageNumber] = useState(1);
-    let totalPage = 0;
-    let isLastPage = false;
+    const [totalPage, setTotalPage] = useState(0);
 
     const {
         data,
@@ -38,29 +37,21 @@ const Repositories = memo(() => {
 
 
     const prevRepo = () => {
-        console.log('prev repo');
         if(pageNumber > 1)
             setPageNumber(pageNumber - 1)
     } 
     
     const nextRepo = () => {
-        console.log('next repo');
-        setPageNumber(pageNumber + 1);
+        if(pageNumber <= totalPage)
+             setPageNumber(pageNumber + 1);
     } 
 
     const totalPages = () => {
-        if(isFetchedUser) {
-            totalPage = parseInt(dataUser.public_repos / 10);
-            console.log("set totalpage " + totalPage)
-            if(totalPage === pageNumber){
-                isLastPage = true;
-            }
-        }
+        if(isFetchedUser)
+            setTotalPage(Math.ceil(dataUser.public_repos / 10));
     }
 
-    useEffect(() => {
-        totalPages();
-    }, [dataUser, totalPage])
+    useEffect(() => totalPages(), [dataUser])
 
 
     return (
@@ -91,12 +82,12 @@ const Repositories = memo(() => {
                     </div>
                      
                     { 
-                        data.length > 5 ?
+                        isFetchedUser && dataUser.public_repos > 10 ?
                             <Pagination 
                                 prevFunc={prevRepo}  
                                 nextFunc={nextRepo}
                                 isFirst={pageNumber === 1 ? true : false}
-                                isLast={isLastPage}
+                                isLast={pageNumber === totalPage ? true : false}
                             />
                         : null
                     }

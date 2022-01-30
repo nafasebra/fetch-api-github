@@ -5,7 +5,7 @@ import './Pagination.css';
 
 const Pagination = ( props ) => {
 
-    const {
+    let {
         prevFunc,
         nextFunc,
         isFirst,
