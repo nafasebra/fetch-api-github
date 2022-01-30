@@ -1,7 +1,14 @@
 # fetch api github
-### fetch repository info from the github account with Github API
+## fetch repository and user info from the github account with Github API
 
 I use axios and react query for fetch data from the github api
+
+<br />
+
+![fetch-api-github](https://user-images.githubusercontent.com/74317517/151714154-5a7e5f49-3f2b-4fce-bdc5-028110972633.PNG)
+
+<br />
+
 
 ### Feature:
 - get repository list 
@@ -10,11 +17,11 @@ I use axios and react query for fetch data from the github api
 - Responsive layout
 - Pagination repositories
 
-# what technology did i use?
+
+### what technology did i use?
 - create react app
 - axios 
 - react query
-- pure CSS
 
 
 ## for use
