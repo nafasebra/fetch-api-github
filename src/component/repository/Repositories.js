@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 
 // import component
 import RepositoryItem from './RepositoryItem';
@@ -14,7 +14,6 @@ import { getRepoInfo, getUserInfo } from './../../api/Api'
 
 // import react query
 import { useQuery } from 'react-query';
-import { useEffect } from 'react/cjs/react.development';
 
 
 const Repositories = memo(() => {
